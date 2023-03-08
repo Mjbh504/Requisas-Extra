@@ -1,0 +1,344 @@
+Detalle As screen:
+    Height: |
+        =Max(App.Height, App.MinScreenHeight)
+    Width: |
+        =Max(App.Width, App.MinScreenWidth)
+
+    Rectangle5 As rectangle:
+        BorderColor: =RGBA(109, 49, 162, 1)
+        Fill: =RGBA(109, 49, 162, 1)
+        Height: =168
+        Width: =1366
+        ZIndex: =2
+
+    Icon6 As icon.BackArrow:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =100
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Visualizar,ScreenTransition.Fade)
+        Width: =108
+        Y: =11
+        ZIndex: =3
+
+    galeriadetalle As gallery.variableTemplateHeightGallery:
+        Height: =597
+        Items: |-
+            =With(
+                {
+                fechainicio:Today()-diapasado,
+                fechafinal:Today()+1
+            
+                },
+                Sort(
+                    Filter(
+                     CambiosEstilos,
+                     FechaCreacion >= fechainicio,
+                     FechaCreacion <=fechafinal
+                          ),FechaCreacion,SortOrder.Ascending
+            
+                    )
+             
+             
+                ) 
+        Layout: =Layout.Vertical
+        TemplateSize: =48
+        Width: =1366
+        Y: =166
+        ZIndex: =4
+
+        Label3 As label:
+            Align: =Align.Center
+            OnSelect: =Select(Parent)
+            Text: =Upper(ThisItem.Lote)
+            Width: =113
+            X: =9
+            ZIndex: =1
+
+        Label12 As label:
+            Align: =Align.Center
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.'Doz Solicitadas'
+            Width: =92
+            X: =139
+            ZIndex: =2
+
+        Label13 As label:
+            Align: =Align.Center
+            OnSelect: =Select(Parent)
+            Text: =Upper(ThisItem.Codigo)
+            Width: =111
+            X: =231
+            ZIndex: =3
+
+        Label14 As label:
+            Align: =Align.Center
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Estilo.Value
+            Width: =110
+            X: =342
+            ZIndex: =4
+
+        Label15 As label:
+            Align: =Align.Center
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Talla.Value
+            Width: =54
+            X: =452
+            ZIndex: =5
+
+        Label16 As label:
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Planta.Value
+            Width: =45
+            X: =540
+            ZIndex: =6
+
+        Label17 As label:
+            Align: =Align.Center
+            OnSelect: =Select(Parent)
+            Text: =Text(ThisItem.FechaCreacion,DateTimeFormat.ShortDate)
+            Width: =180
+            X: =1175
+            ZIndex: =7
+
+        Label18 As label:
+            Align: =Align.Center
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Estado.Value
+            Width: =130
+            X: =612
+            ZIndex: =8
+
+        Label20 As label:
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Supervisores.Value
+            Width: =190
+            X: =762
+            ZIndex: =9
+
+        Label21 As label:
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Causas.Value
+            Width: =205
+            X: =952
+            ZIndex: =10
+
+        Label41 As label:
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.'Comentarios asociados con la aprobación de contenido de este elemento de lista'
+            X: =40
+            Y: =40
+            ZIndex: =11
+
+        Label42 As label:
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.'Estado de aprobación de contenido'
+            X: =60
+            Y: =60
+            ZIndex: =12
+
+    Label22 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Lote"
+        Width: =106
+        X: =12
+        Y: =128
+        ZIndex: =5
+
+    Label22_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Doz Solicitada"
+        Width: =109
+        X: =135
+        Y: =128
+        ZIndex: =6
+
+    Label22_2 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Codigo"
+        Width: =87
+        X: =257
+        Y: =128
+        ZIndex: =7
+
+    Label22_3 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Estilo"
+        Width: =62
+        X: =371
+        Y: =128
+        ZIndex: =8
+
+    Label22_4 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Talla"
+        Width: =60
+        X: =452
+        Y: =128
+        ZIndex: =9
+
+    Label22_5 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Planta"
+        Width: =62
+        X: =531
+        Y: =128
+        ZIndex: =10
+
+    Label22_6 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Estado"
+        Width: =76
+        X: =652
+        Y: =128
+        ZIndex: =11
+
+    Label22_7 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Supervisor"
+        Width: =106
+        X: =812
+        Y: =128
+        ZIndex: =12
+
+    Label22_8 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Fecha de creacion"
+        Width: =169
+        X: =1185
+        Y: =128
+        ZIndex: =13
+
+    Label22_9 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        Text: ="Denegado por"
+        Width: =169
+        X: =987
+        Y: =128
+        ZIndex: =14
+
+    Rectangle10 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =5
+        Width: =1366
+        Y: =123
+        ZIndex: =15
+
+    Rectangle10_1 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Width: =5
+        X: =130
+        Y: =128
+        ZIndex: =16
+
+    Rectangle10_2 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Width: =5
+        X: =244
+        Y: =128
+        ZIndex: =17
+
+    Rectangle10_3 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Width: =5
+        X: =353
+        Y: =128
+        ZIndex: =18
+
+    Rectangle10_4 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Width: =5
+        X: =447
+        Y: =128
+        ZIndex: =19
+
+    Rectangle10_5 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Width: =5
+        X: =517
+        Y: =128
+        ZIndex: =20
+
+    Rectangle10_6 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Width: =5
+        X: =619
+        Y: =128
+        ZIndex: =21
+
+    Rectangle10_7 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Width: =5
+        X: =760
+        Y: =128
+        ZIndex: =22
+
+    Rectangle10_8 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Width: =5
+        X: =958
+        Y: =128
+        ZIndex: =23
+
+    Rectangle10_9 As rectangle:
+        BorderColor: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =40
+        Width: =5
+        X: =1172
+        Y: =128
+        ZIndex: =24
+
+    Image7 As image:
+        Height: =123
+        Image: ='1200px-Hanes-logo.svg-1024x899'
+        Width: =150
+        X: =1216
+        ZIndex: =25
+
+    diapasado As slider:
+        Default: =0
+        Max: =367
+        ValueFill: =RGBA(255, 0, 0, 1)
+        X: =458
+        Y: =41
+        ZIndex: =26
+
+    Label24 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Bold
+        Size: =15
+        Text: ="Ver registros anteriores"
+        Width: =258
+        X: =171
+        Y: =41
+        ZIndex: =27
+

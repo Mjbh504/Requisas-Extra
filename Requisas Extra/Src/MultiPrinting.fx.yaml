@@ -1,0 +1,372 @@
+MultiPrinting As screen:
+    Height: =If(Self.Printing,galeriamulti.TemplateHeight*CountRows(galeriamulti.AllItems)+galeriamulti.Y, Max(App.Height, App.MinScreenHeight))
+    Width: |
+        =1000
+
+    galeriamulti As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(109, 49, 162, 1)
+        Height: =If(Parent.Printing,Self.TemplateHeight*CountRows(galeriamulti.AllItems),768)
+        Items: |
+            =Sort(Filter(CambiosEstilos,Estado.Value="FINALIZADO",FechaCreacion>=Today()),FechaCreacion,SortOrder.Descending)
+        Layout: =Layout.Vertical
+        TemplateSize: =579
+        Width: =1000
+        ZIndex: =1
+
+        Rectangle2_4 As rectangle:
+            Fill: =RGBA(109, 49, 162, 1)
+            Height: =102
+            OnSelect: =Select(Parent)
+            Width: =987
+            ZIndex: =2
+
+        Label1_2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(109, 49, 162, 1)
+            BorderThickness: =2
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: =Upper(ThisItem.Lote)
+            Width: =230
+            X: =33
+            Y: =128
+            ZIndex: =3
+
+        Label2_2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(109, 49, 162, 1)
+            BorderThickness: =2
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: =ThisItem.Estilo.Value
+            Width: =230
+            X: =32
+            Y: =205
+            ZIndex: =4
+
+        Label4_2 As label:
+            Align: =Align.Center
+            BorderColor: =RGBA(109, 49, 162, 1)
+            BorderThickness: =2
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: =ThisItem.Lote
+            Width: =230
+            X: =365
+            Y: =128
+            ZIndex: =5
+
+        Label6_2 As label:
+            Align: =Align.Center
+            BorderThickness: =2
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =20
+            Text: =ThisItem.Talla.Value
+            Width: =230
+            X: =365
+            Y: =210
+            ZIndex: =9
+
+        Label9_30 As label:
+            Color: =RGBA(9, 33, 98, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="Lote"
+            Width: =230
+            X: =32
+            Y: =98
+            ZIndex: =10
+
+        Label9_31 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="Cant.DZ "
+            Width: =230
+            X: =365
+            Y: =98
+            ZIndex: =11
+
+        Label9_28 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =98
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="F-SUM-36"
+            Width: =198
+            ZIndex: =12
+
+        Label9_29 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =98
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="REQUISA DE MATERIALES EXTRA"
+            Width: =478
+            X: =234
+            ZIndex: =13
+
+        Label9_27 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =98
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="Rev ini 19-Agosto-21"
+            Width: =275
+            X: =712
+            ZIndex: =14
+
+        Label7_2 As label:
+            Align: =Align.Center
+            BorderThickness: =2
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: =ThisItem.Planta.Value
+            Width: =230
+            X: =683
+            Y: =210
+            ZIndex: =15
+
+        Label10_2 As label:
+            BorderColor: =RGBA(109, 49, 162, 1)
+            BorderThickness: =1
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: =ThisItem.Supervisores.Value
+            Width: =230
+            X: =33
+            Y: =282
+            ZIndex: =16
+
+        Label19_2 As label:
+            Align: =Align.Center
+            BorderThickness: =2
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: |
+                =Upper(ThisItem.Codigo)
+            Width: =230
+            X: =683
+            Y: =132
+            ZIndex: =18
+
+        Label9_32 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="Codigo"
+            Width: =230
+            X: =683
+            Y: =98
+            ZIndex: =19
+
+        Label9_33 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="Estilo"
+            Width: =230
+            X: =34
+            Y: =175
+            ZIndex: =20
+
+        Label9_34 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="Talla"
+            Width: =230
+            X: =365
+            Y: =180
+            ZIndex: =21
+
+        Label9_35 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="Planta"
+            Width: =230
+            X: =683
+            Y: =182
+            ZIndex: =22
+
+        Label9_36 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =22
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="Estado"
+            Width: =230
+            X: =365
+            Y: =260
+            ZIndex: =23
+
+        Label11_2 As label:
+            BorderThickness: =2
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =18
+            Text: =ThisItem.Estado.Value
+            Width: =230
+            X: =365
+            Y: =282
+            ZIndex: =32
+
+        Image6_2 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Height: =80
+            Image: |-
+                =If(!IsBlank(LookUp(Supervisores,Supervisores=ThisItem.Supervisores.Value)),
+                    LookUp(Supervisores,Supervisores=ThisItem.Supervisores.Value).Firma
+                )
+            OnSelect: =Select(Parent)
+            Width: =228
+            X: =34
+            Y: =346
+            ZIndex: =33
+
+        Label9_37 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =30
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="Supervisor"
+            Width: =230
+            X: =32
+            Y: =252
+            ZIndex: =34
+
+        Label9_38 As label:
+            FontWeight: =FontWeight.Bold
+            Height: =19
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: ="Causas"
+            Width: =230
+            X: =683
+            Y: =263
+            ZIndex: =35
+
+        Label45 As label:
+            BorderColor: =RGBA(109, 49, 162, 1)
+            BorderThickness: =2
+            FontWeight: =FontWeight.Bold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: =ThisItem.Causas.Value
+            Width: =230
+            X: =683
+            Y: =282
+            ZIndex: =42
+
+        Rectangle8_6 As rectangle:
+            BorderColor: =RGBA(109, 49, 162, 1)
+            Fill: =RGBA(109, 49, 162, 1)
+            Height: =3
+            Width: =230
+            X: =364
+            Y: =429
+            ZIndex: =43
+
+        Rectangle8_7 As rectangle:
+            BorderColor: =RGBA(109, 49, 162, 1)
+            Fill: =RGBA(109, 49, 162, 1)
+            Height: =3
+            Width: =230
+            X: =682
+            Y: =426
+            ZIndex: =44
+
+        Rectangle8_8 As rectangle:
+            BorderColor: =RGBA(109, 49, 162, 1)
+            Fill: =RGBA(109, 49, 162, 1)
+            Height: =3
+            Width: =230
+            X: =32
+            Y: =431
+            ZIndex: =45
+
+        Label25_6 As label:
+            Align: =Align.Center
+            Color: =RGBA(109, 49, 162, 1)
+            FontWeight: =FontWeight.Bold
+            Text: ="Gerente/Coordinador de produccion"
+            Width: =230
+            X: =32
+            Y: =450
+            ZIndex: =46
+
+        Label25_7 As label:
+            Align: =Align.Center
+            Color: =RGBA(109, 49, 162, 1)
+            FontWeight: =FontWeight.Bold
+            Text: ="Entregador por suministros"
+            Width: =230
+            X: =364
+            Y: =450
+            ZIndex: =47
+
+        Label25_8 As label:
+            Align: =Align.Center
+            Color: =RGBA(109, 49, 162, 1)
+            FontWeight: =FontWeight.Bold
+            Text: ="Repartidor que recibe"
+            Width: =230
+            X: =682
+            Y: =450
+            ZIndex: =48
+
+        Label28 As label:
+            Align: =Align.Center
+            Color: =RGBA(109, 49, 162, 1)
+            FontWeight: =FontWeight.Bold
+            OnSelect: =Select(Parent)
+            Text: |
+                =Text(ThisItem.FechaCreacion,DateTimeFormat.ShortDate)
+            X: =405
+            Y: =512
+            ZIndex: =49
+
+    Icon15 As icon.Print:
+        Color: =RGBA(109, 49, 162, 1)
+        Icon: =Icon.Print
+        OnSelect: =Print()
+        Visible: =Not(Parent.Printing)
+        X: =33
+        Y: =661
+        ZIndex: =8
+
+    Icon16 As icon.CancelBadge:
+        Color: =RGBA(109, 49, 162, 1)
+        Icon: =Icon.CancelBadge
+        OnSelect: =Navigate(Visualizar,ScreenTransition.Fade)
+        Visible: =Not(Parent.Printing)
+        X: =116
+        Y: =661
+        ZIndex: =9
+

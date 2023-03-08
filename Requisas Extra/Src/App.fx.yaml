@@ -1,0 +1,6 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |
+        =Set(nombreSupervisor,LookUp(registros,correos = User().Email).Nombres);
+        Set(varpermisos,LookUp(registros,correos=User().Email).permisos);
+

@@ -1,0 +1,99 @@
+{
+  "32249e94-ea1e-4d3b-b593-87c51c24646d": {
+    "connectionParameters": {
+      "workFlowCallbackUri": "https://prod-72.westus.logic.azure.com:443/workflows/1bc2b6fc9d9e4a9c9ee3c730c8e8e3f6/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=Pl2N1v1q8Jo0X69o_k15Ue3uoAz1qdJxP3JUYsIr1_4",
+      "workflowEndpoint": "/subscriptions/34eedfbf-3e33-475d-b510-23537fba3dc9/resourceGroups/333b3fe469f04013a0eb5bcb97f52644-83850a49228f40c4a2bcc804db5ff3aa/providers/Microsoft.Logic/workflows/1858c3a1-53d5-4be2-a91f-c291dc6c6a4d",
+      "workflowName": "1858c3a1-53d5-4be2-a91f-c291dc6c6a4d",
+      "workflowPath": "/subscriptions/34eedfbf-3e33-475d-b510-23537fba3dc9/resourceGroups/333b3fe469f04013a0eb5bcb97f52644-83850a49228f40c4a2bcc804db5ff3aa/providers/Microsoft.Logic/workflows/1858c3a1-53d5-4be2-a91f-c291dc6c6a4d"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Flujos lógicos",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1615/1.0.1615.3163/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "1858c3a1-53d5-4be2-a91f-c291dc6c6a4d"
+        }
+      },
+      "parameterHintsV2": {
+        "workflowEntityId": {},
+        "workflowName": {
+          "value": "1858c3a1-53d5-4be2-a91f-c291dc6c6a4d"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "ExportExcel"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "32249e94-ea1e-4d3b-b593-87c51c24646d"
+  },
+  "4c3c8a21-fe09-4323-be08-8de731a91a0c": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/gateway/greyhound/3000.150.11/1.0.1613.3116/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://hanes.sharepoint.com/sites/CholomaLogisticandSuppliesTeamsite": {
+        "dataSources": {
+          "CambiosEstilos": {
+            "tableName": "f0fbcc91-4e6d-40c7-8225-9509e03e9608"
+          },
+          "registros": {
+            "tableName": "96ee99e2-86fe-43df-83a7-a10528866949"
+          },
+          "Supervisores": {
+            "tableName": "fa095c38-8c18-4f3a-8118-38c075f9c089"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "CambiosEstilos",
+      "Supervisores",
+      "registros"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "4c3c8a21-fe09-4323-be08-8de731a91a0c"
+  },
+  "b42fbed2-c1e6-47ef-8b52-8f5efeb51f43": {
+    "connectionParameters": {
+      "sku": "Enterprise"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/gateway/greyhound/3000.150.11/1.0.1613.3116/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://hanes.sharepoint.com/sites/CholomaLogisticandSuppliesTeamsite": {
+        "dataSources": {
+          "BugReport": {
+            "tableName": "62ec7e8f-3072-4b3d-945f-e25907794cfd"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "BugReport"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "b42fbed2-c1e6-47ef-8b52-8f5efeb51f43"
+  }
+}

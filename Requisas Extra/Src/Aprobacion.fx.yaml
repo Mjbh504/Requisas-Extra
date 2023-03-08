@@ -1,0 +1,535 @@
+Aprobacion As screen:
+    Height: |+
+        =Max(App.Height, App.MinScreenHeight)
+        
+        
+    Width: =1000
+
+    galeriacambios As gallery.variableTemplateHeightGallery:
+        BorderColor: =RGBA(109, 49, 162, 1)
+        BorderThickness: =1
+        Height: =666
+        Items: |
+            =Sort(Filter(CambiosEstilos,Estado.Value="APROBACION",FechaCreacion>=Today()),FechaCreacion,SortOrder.Descending)
+        Layout: =Layout.Vertical
+        TemplateSize: =248
+        Width: =1000
+        Y: =102
+        ZIndex: =1
+
+        Rectangle7_1 As rectangle:
+            BorderColor: =RGBA(109, 49, 162, 1)
+            BorderThickness: =2
+            Fill: =If(Label11_1.Text="APROBACION",RGBA(255, 255, 0, 0.45),RGBA(0, 0, 0, 0))
+            Height: =177
+            OnSelect: =Select(Parent)
+            Width: =990
+            Y: =71
+            ZIndex: =1
+
+        Rectangle2_1 As rectangle:
+            BorderColor: =RGBA(109, 49, 162, 1)
+            BorderThickness: =2
+            Fill: =RGBA(109, 49, 162, 1)
+            Height: =70
+            OnSelect: =Select(Parent)
+            Width: =990
+            Y: =1
+            ZIndex: =2
+
+        Label1_1 As label:
+            Align: =Align.Center
+            Height: =31
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Lote
+            Width: =165
+            X: =1
+            Y: =70
+            ZIndex: =3
+
+        Label2_1 As label:
+            Align: =Align.Center
+            Height: =31
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Estilo.Value
+            Width: =86
+            X: =344
+            Y: =70
+            ZIndex: =4
+
+        Label4_1 As label:
+            Align: =Align.Center
+            Height: =31
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.'Doz Solicitadas'
+            Width: =89
+            X: =166
+            Y: =70
+            ZIndex: =5
+
+        Icon1_1 As icon.Edit:
+            Color: =RGBA(109, 49, 162, 1)
+            Height: =55
+            Icon: =Icon.Edit
+            OnSelect: =Set(ItemID,ThisItem.ID);Navigate(Modif);EditForm('Envio forma');
+            Width: =81
+            X: =772
+            Y: =155
+            ZIndex: =6
+
+        Icon2_1 As icon.View:
+            Color: =RGBA(109, 49, 162, 1)
+            Height: =55
+            Icon: =Icon.View
+            OnSelect: =Set(ItemID,ThisItem.ID);Navigate(Modif);ViewForm('Envio forma');
+            Width: =81
+            X: =881
+            Y: =155
+            ZIndex: =7
+
+        lblMensaje_1 As label:
+            BorderColor: =RGBA(109, 49, 162, 1)
+            BorderThickness: =1
+            Color: |
+                =//*If(DateDiff(ThisItem.FechaCreacion,Now(),Minutes) > 60 && ThisItem.Estado.Value = "PREPARACION",
+                   // RGBA(255,0,0,1),
+                   // RGBA(0,255,0,1)
+                    //RGBA(0,0,255,1)
+                //)
+                If(DateDiff(ThisItem.FechaCreacion,Now(),TimeUnit.Minutes) > 60 && ThisItem.Estado.Value = "PREPARACION",
+                 RGBA(255,0,0,1),
+                DateDiff(ThisItem.FechaCreacion,Now(),TimeUnit.Minutes) > 60 && ThisItem.Estado.Value = "SOLICITADO",
+                 RGBA(255,0,0,1),
+                 ThisItem.Estado.Value = "FINALIZADO",RGBA(109,049,162,1),RGBA(0,255,0,1)
+                )
+            OnSelect: =Select(Parent)
+            Size: =15
+            Text: |-
+                =/*
+                If(DateDiff(ThisItem.FechaCreacion,Now(),Minutes) > 60
+                 && ThisItem.Estado.Value = "PREPARACION",
+                 "Retrasado",
+                 If(DateDiff(ThisItem.FechaCreacion,Now(),Minutes) > 60
+                 && ThisItem.Estado.Value = "SOLICITADO","Retrasado",ThisItem.Estado.Value = "FINALIZADO","","A  tiempo" )
+                    
+                )
+                */
+                If(DateDiff(ThisItem.FechaCreacion,Now(),TimeUnit.Minutes) > 60 && ThisItem.Estado.Value = "PREPARACION",
+                 "Retrasado",
+                DateDiff(ThisItem.FechaCreacion,Now(),TimeUnit.Minutes) > 60 && ThisItem.Estado.Value = "SOLICITADO",
+                 "Retrasado",
+                 ThisItem.Estado.Value = "FINALIZADO","Terminado","A tiempo"
+                )
+            Width: =160
+            X: =191
+            Y: =128
+            ZIndex: =8
+
+        Label6_1 As label:
+            Height: =31
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Talla.Value
+            Width: =83
+            X: =430
+            Y: =70
+            ZIndex: =9
+
+        Label9_13 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Text: ="Lote"
+            Width: =162
+            X: =4
+            Y: =41
+            ZIndex: =10
+
+        Label9_14 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Text: ="Cant.DZ "
+            Width: =88
+            X: =167
+            Y: =41
+            ZIndex: =11
+
+        Label9_11 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =27
+            OnSelect: =Select(Parent)
+            Text: ="F-SUM-36"
+            Width: =167
+            Y: =1
+            ZIndex: =12
+
+        Label9_12 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =27
+            OnSelect: =Select(Parent)
+            Text: ="REQUISA DE MATERIALES EXTRA"
+            Width: =358
+            X: =191
+            Y: =1
+            ZIndex: =13
+
+        Label9_10 As label:
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =28
+            OnSelect: =Select(Parent)
+            Text: ="Rev ini 19-Agosto-21"
+            Width: =210
+            X: =596
+            ZIndex: =14
+
+        Label7_1 As label:
+            Height: =31
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Planta.Value
+            Width: =83
+            X: =513
+            Y: =70
+            ZIndex: =15
+
+        Label10_1 As label:
+            BorderThickness: =1
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Supervisores.Value
+            Width: =160
+            X: =191
+            Y: =195
+            ZIndex: =16
+
+        Rectangle6_1 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =6
+            OnSelect: =Select(Parent)
+            Width: =986
+            X: =4
+            Y: =36
+            ZIndex: =17
+
+        Label19_1 As label:
+            Align: =Align.Center
+            Height: =31
+            OnSelect: =Select(Parent)
+            Text: |
+                =ThisItem.Codigo
+            Width: =89
+            X: =255
+            Y: =70
+            ZIndex: =18
+
+        Label9_15 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Text: ="Codigo"
+            Width: =89
+            X: =255
+            Y: =41
+            ZIndex: =19
+
+        Label9_16 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Text: ="Estilo"
+            Width: =83
+            X: =347
+            Y: =41
+            ZIndex: =20
+
+        Label9_17 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Text: ="Talla"
+            Width: =83
+            X: =430
+            Y: =41
+            ZIndex: =21
+
+        Label9_18 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Text: ="Planta"
+            Width: =83
+            X: =513
+            Y: =41
+            ZIndex: =22
+
+        Label9_19 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Text: ="Estado"
+            Width: =130
+            X: =596
+            Y: =41
+            ZIndex: =23
+
+        Button4_2 As button:
+            DisabledBorderColor: =RGBA(109, 49, 162, 1)
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(109, 49, 162, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(109, 49, 162, 1)
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Text: ="Disponibilidad"
+            X: =7
+            Y: =128
+            ZIndex: =24
+
+        Button4_3 As button:
+            DisabledBorderColor: =RGBA(109, 49, 162, 1)
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            DisabledFill: =RGBA(109, 49, 162, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(109, 49, 162, 1)
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Text: ="Supervisor"
+            X: =7
+            Y: =195
+            ZIndex: =25
+
+        Rectangle6_8 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Width: =4
+            X: =162
+            Y: =41
+            ZIndex: =26
+
+        Rectangle6_9 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Width: =4
+            X: =255
+            Y: =41
+            ZIndex: =27
+
+        Rectangle6_10 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Width: =4
+            X: =347
+            Y: =41
+            ZIndex: =28
+
+        Rectangle6_11 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Width: =4
+            X: =426
+            Y: =41
+            ZIndex: =29
+
+        Rectangle6_12 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Width: =4
+            X: =505
+            Y: =41
+            ZIndex: =30
+
+        Rectangle6_13 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Width: =4
+            X: =590
+            Y: =41
+            ZIndex: =31
+
+        Label11_1 As label:
+            Height: =30
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Estado.Value
+            X: =611
+            Y: =71
+            ZIndex: =32
+
+        Image6_1 As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Height: =80
+            Image: |-
+                =If(!IsBlank(LookUp(Supervisores,Supervisores=ThisItem.Supervisores.Value)),
+                    LookUp(Supervisores,Supervisores=ThisItem.Supervisores.Value).Firma
+                )
+            OnSelect: =Select(Parent)
+            Width: =231
+            X: =380
+            Y: =155
+            ZIndex: =33
+
+        Label5 As label:
+            Align: =Align.Center
+            Height: =30
+            OnSelect: =Select(Parent)
+            Text: |
+                =Text(ThisItem.FechaCreacion,DateTimeFormat.ShortDate)
+            Width: =120
+            X: =761
+            Y: =71
+            ZIndex: =35
+
+        Label9_20 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            Height: =28
+            OnSelect: =Select(Parent)
+            Text: ="Fecha de creacion"
+            Width: =171
+            X: =726
+            Y: =42
+            ZIndex: =36
+
+        Rectangle6_14 As rectangle:
+            BorderColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =29
+            OnSelect: =Select(Parent)
+            Width: =4
+            X: =722
+            Y: =42
+            ZIndex: =37
+
+        Icon7 As icon.Trash:
+            Color: =RGBA(109, 49, 162, 1)
+            Height: =55
+            Icon: =Icon.Erase
+            OnSelect: |
+                =Set(varshowdelete,true)
+            Width: =81
+            X: =674
+            Y: =155
+            ZIndex: =38
+
+    Rectangle11 As rectangle:
+        BorderColor: =RGBA(109, 49, 162, 1)
+        BorderThickness: =2
+        Fill: =RGBA(109, 49, 162, 1)
+        Height: =102
+        Width: =1000
+        ZIndex: =6
+
+    Group1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =6
+
+        Rectangle9 As rectangle:
+            Fill: =RGBA(109, 49, 162, 0.6)
+            Height: =475
+            Visible: =varshowdelete
+            Width: =680
+            X: =169
+            Y: =179
+            ZIndex: =2
+
+        Button6 As button:
+            AutoDisableOnSelect: =false
+            BorderThickness: =0
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(152, 208, 70, 1)
+            Height: =67
+            HoverBorderColor: =RGBA(152, 208, 70, 1)
+            HoverFill: =RGBA(152, 208, 70, 1)
+            OnSelect: |-
+                =Remove(CambiosEstilos,galeriacambios.Selected);
+                Set(varshowdelete,false);
+            PressedBorderColor: =RGBA(152, 208, 70, 1)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(152, 208, 70, 1)
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Text: ="Borrar"
+            Visible: =varshowdelete
+            Width: =237
+            X: =264
+            Y: =458
+            ZIndex: =3
+
+        Button7 As button:
+            AutoDisableOnSelect: =false
+            BorderThickness: =0
+            DisabledColor: =RGBA(255, 255, 255, 1)
+            Fill: =RGBA(255, 0, 0, 1)
+            Height: =67
+            HoverFill: =RGBA(255, 0, 0, 1)
+            OnSelect: |
+                =Set(varshowdelete,false)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(255, 0, 0, 1)
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Text: ="Cancelar"
+            Visible: =varshowdelete
+            Width: =237
+            X: =536
+            Y: =458
+            ZIndex: =4
+
+        Label8 As label:
+            Align: =Align.Center
+            Color: =RGBA(255, 255, 255, 1)
+            FontWeight: =FontWeight.Bold
+            Height: =204
+            Size: =20
+            Text: ="¿Esta seguro que deseas borrar este registro?"
+            Visible: =varshowdelete
+            Width: =509
+            X: =264
+            Y: =208
+            ZIndex: =5
+
+    Image9 As image:
+        Image: ='1200px-Hanes-logo.svg-1024x899'
+        Width: =142
+        X: =858
+        ZIndex: =7
+
+    Icon11 As icon.BackArrow:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =100
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Visualizar,ScreenTransition.CoverRight)
+        Width: =108
+        ZIndex: =8
+
